@@ -1,5 +1,9 @@
-const { orderCoffee, orderCoffeeBean } = require("./action/order");
-const { restockCoffee, restockCoffeeBean } = require("./action/restock");
+const { orderCoffee, orderCoffeeBean, orderCake } = require("./action/order");
+const {
+  restockCoffee,
+  restockCoffeeBean,
+  restockCake,
+} = require("./action/restock");
 const { store } = require("./store");
 
 // 來試試拿取 initialState
@@ -17,4 +21,8 @@ store.dispatch(restockCoffee(20, 10));
 store.dispatch(orderCoffeeBean(3, 15));
 // 測試補咖啡豆
 store.dispatch(restockCoffeeBean(10, 10));
+// 試看看買蛋糕
+store.dispatch(orderCake(2, 30));
+// 測試補蛋糕
+store.dispatch(restockCake(5, 25));
 unsubscribe();

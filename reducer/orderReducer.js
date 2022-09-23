@@ -3,6 +3,8 @@ const {
   COFFEE_RESTOCKED,
   COFFEEBEAN_ORDERED,
   COFFEEBEAN_RESTOCKED,
+  CAKE_ORDERED,
+  CAKE_RESTOCKED,
 } = require("../action/types");
 
 const initialState = {
@@ -40,6 +42,20 @@ const orderReducer = (state = initialState, action) => {
       return {
         ...state,
         numOfCoffeeBean: state.numOfCoffeeBean + action.payload.qty,
+        assets: state.assets - action.payload.pay,
+      };
+    case CAKE_ORDERED:
+      // 顧客買 => 商品-, 營收+
+      return {
+        ...state,
+        numOfCake: state.numOfCake - action.payload.qty,
+        assets: state.assets + action.payload.income,
+      };
+    case CAKE_RESTOCKED:
+      // 補貨 => 商品+, 營收-
+      return {
+        ...state,
+        numOfCake: state.numOfCake + action.payload.qty,
         assets: state.assets - action.payload.pay,
       };
     default:

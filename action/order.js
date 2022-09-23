@@ -1,5 +1,5 @@
-const { COFFEE_ORDERED, COFFEEBEAN_ORDERED } = require("./types");
-
+const { COFFEE_ORDERED, COFFEEBEAN_ORDERED, CAKE_ORDERED } = require("./types");
+// 購買咖啡
 const orderCoffee = (qty, income) => {
   return {
     type: COFFEE_ORDERED,
@@ -19,7 +19,19 @@ const orderCoffeeBean = (qty, income) => {
     },
   };
 };
+// 購買蛋糕
+const orderCake = (qty, income) => {
+  return {
+    type: CAKE_ORDERED,
+    payload: {
+      qty: qty,
+      income: income,
+    },
+  };
+};
+
 module.exports = {
   orderCoffee,
   orderCoffeeBean,
+  orderCake,
 };
