@@ -1,8 +1,5 @@
-const {
-  orderCoffee,
-  orderCoffeeObj,
-  orderCoffeeByNum,
-} = require("./action/order");
+const { orderCoffee } = require("./action/order");
+const { restockCoffee } = require("./action/restock");
 const { store } = require("./store");
 
 // 來試試拿取 initialState
@@ -13,8 +10,8 @@ const unsubscribe = store.subscribe(() =>
 );
 
 // 讓我們來試看看點餐
-store.dispatch(orderCoffee());
-store.dispatch(orderCoffeeObj);
-store.dispatch(orderCoffeeByNum(2));
+store.dispatch(orderCoffee(2, 20));
+// 測試補咖啡
+store.dispatch(restockCoffee(20, 10));
 
 unsubscribe();
