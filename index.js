@@ -4,6 +4,12 @@ const {
   restockCoffeeBean,
   restockCake,
 } = require("./action/restock");
+const {
+  fetchPokeRequest,
+  fetchPokeSuccess,
+  fetchPokeFailure,
+  fetchPokemons,
+} = require("./action/pokemon");
 const { store } = require("./store");
 
 // 來試試拿取 initialState
@@ -25,4 +31,7 @@ store.dispatch(restockCoffeeBean(10, 10));
 store.dispatch(orderCake(2, 30));
 // 測試補蛋糕
 store.dispatch(restockCake(5, 25));
-unsubscribe();
+store.dispatch(
+  fetchPokemons(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`)
+);
+// unsubscribe();//清掉動作
