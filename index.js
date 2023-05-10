@@ -34,4 +34,5 @@ store.dispatch(restockCake(5, 25));
 store.dispatch(
   fetchPokemons(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=20`)
 );
+
 // unsubscribe();//清掉動作
