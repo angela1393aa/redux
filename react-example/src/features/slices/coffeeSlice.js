@@ -1,4 +1,3 @@
-// src/features/slices/coffeeSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -20,6 +19,9 @@ const coffeeSlice = createSlice({
     },
   },
 });
+
+// 方便辨識的處理
+export const selectCoffee = (state) => state.coffee;
 
 export const { coffeeOrdered, coffeeRestocked } = coffeeSlice.actions;
 
