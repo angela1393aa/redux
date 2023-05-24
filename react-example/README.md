@@ -2,4 +2,4 @@
 
 ## npm install
 
-## npm run dev
+## npm run dev//在終端機執行
